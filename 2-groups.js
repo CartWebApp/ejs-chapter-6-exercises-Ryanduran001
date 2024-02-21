@@ -7,7 +7,37 @@ Give the class a static from method that takes an iterable object as argument an
 */
 
 class Group {
-    // Your code here.
+    constructor(arr) {
+      this.arr = arr;
+    }
+    static from([x, y]) {
+      if(x > y) {
+        for (y + 1; y < x; y++) {
+          this.arr.push(y)
+        }
+      }
+      else {
+        for (x + 1; x < y; x++) {
+          this.arr.push(x)
+        }
+      }
+    }
+    has(p) {
+      for (p = 0; p < this.length; p++) {
+        if(arr[0] == p) {
+          return true;
+        }
+      }
+      return false;
+    }
+    add(i) {
+      this.arr.push(i);
+    }
+    delete(t) {
+      if (this.has(t)) {
+
+      }
+    }
   }
   
 
