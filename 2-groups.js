@@ -11,38 +11,39 @@ class Group {
       this.arr = arr;
     }
     static from([x, y]) {
+      let arr = []
       if(x > y) {
-        for (y + 1; y < x; y++) {
-          this.arr.push(y)
+        for (y; y <= x; y++) {
+          arr.push(y)
         }
+        return new Group(arr)
       }
       else {
-        for (x + 1; x < y; x++) {
-          this.arr.push(x)
+        for (x; x <= y; x++) {
+          arr.push(x)
         }
+        return new Group(arr)
       }
     }
-    has(p) {
-      for (p = 0; p < this.length; p++) {
-        if(arr[0] == p) {
-          return true;
-        }
-      }
-      return false;
+    has(n) {
+      return this.arr.includes(n)
     }
     add(i) {
-      this.arr.push(i);
+      if(!this.has(i)) {
+        this.arr.push(i);
+      }
+      return this
     }
     delete(t) {
-      if (this.has(t)) {
-
+      if (this.has(t)) { // only splice array when item is found
+       this.arr.splice(this.arr.indexOf(t), 1);
       }
     }
   }
   
 
   // Tests:
-  let group = Group.from([10, 20]);
+  let group = Group.from([-29, 8]);
   console.log(group.has(10));
   // → true
   console.log(group.has(30));
