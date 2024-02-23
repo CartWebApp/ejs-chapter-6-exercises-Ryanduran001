@@ -7,6 +7,56 @@ It is okay if your iterator behaves strangely when the group is modified during 
 */
 
 // Your code here (and the code from the previous exercise)
+class Group {
+  constructor(arr) {
+    this.arr = arr;
+  }
+  static from([x, y, z]) {
+    return new Group [x, y, z];
+    
+    // if(x > y) {
+    //   for (y; y <= x; y++) {
+    //     arr.push(y)
+    //   }
+    //   return new Group(arr)
+    // }
+    // else {
+    //   for (x; x <= y; x++) {
+    //     arr.push(x)
+    //   }
+    //   return new Group(arr)
+    // }
+  }
+  has(n) {
+    return this.arr.includes(n)
+  }
+  add(i) {
+    if(!this.has(i)) {
+      this.arr.push(i);
+    }
+    return this
+  }
+  delete(t) {
+    if (this.has(t)) { 
+     this.arr.splice(this.arr.indexOf(t), 1);
+    }
+  }
+}
+
+class GroupIterator {
+  constructor(list) {
+    this.list = list
+    this.position = 0
+    this.value = this.list[this.position]
+    this.done = false
+  }
+  next() {
+    if(this.list.length = this.position) {
+      return this.done = true
+    }
+    return {value: this.value, done: this.done}
+  }
+}
 
 
 // Tests:
