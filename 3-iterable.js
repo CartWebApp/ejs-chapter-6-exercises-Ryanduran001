@@ -11,9 +11,7 @@ class Group {
   constructor(arr) {
     this.arr = arr;
   }
-  static from([x, y, z]) {
-    return new Group [x, y, z];
-    
+  static from(arr) {  
     // if(x > y) {
     //   for (y; y <= x; y++) {
     //     arr.push(y)
@@ -26,6 +24,7 @@ class Group {
     //   }
     //   return new Group(arr)
     // }
+    return(arr);
   }
   has(n) {
     return this.arr.includes(n)
@@ -40,6 +39,9 @@ class Group {
     if (this.has(t)) { 
      this.arr.splice(this.arr.indexOf(t), 1);
     }
+  }
+  [Symbol.iterator]() {
+    return new GroupIterator(this);
   }
 }
 
